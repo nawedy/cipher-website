@@ -22,13 +22,14 @@ export default function CountdownTimer() {
     seconds: 0,
   });
   const [mounted, setMounted] = useState(false);
+  const [spotsRemaining, setSpotsRemaining] = useState(347);
 
   useEffect(() => {
     setMounted(true);
     
-    // Set emergency deadline to 72 hours from now
-    const emergencyDeadline = new Date();
-    emergencyDeadline.setHours(emergencyDeadline.getHours() + 72);
+    // Set emergency deadline to 72 hours from a fixed launch date
+    const launchDate = new Date('2024-01-15T00:00:00Z'); // Fixed launch date
+    const emergencyDeadline = new Date(launchDate.getTime() + (72 * 60 * 60 * 1000)); // 72 hours after launch
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -41,8 +42,17 @@ export default function CountdownTimer() {
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         setTimeLeft({ days, hours, minutes, seconds });
+
+        // Calculate spots remaining based on elapsed time (simulate decreasing availability)
+        const totalTime = 72 * 60 * 60 * 1000; // 72 hours in milliseconds
+        const elapsedTime = totalTime - distance;
+        const elapsedPercentage = Math.max(0, Math.min(1, elapsedTime / totalTime));
+        const spotsUsed = Math.floor(elapsedPercentage * 153); // 153 spots taken out of 500 total
+        const remaining = Math.max(0, 347 - spotsUsed);
+        setSpotsRemaining(remaining);
       } else {
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setSpotsRemaining(0);
         clearInterval(timer);
       }
     }, 1000);
@@ -95,14 +105,14 @@ export default function CountdownTimer() {
           </div>
           
           <div className="text-orange-300 text-sm font-medium">
-            Price increases to $199, then $249, then $499 at launch
+            Price increases to $149, then $199, then $499 at launch
           </div>
         </div>
 
         <div className="mt-8">
           <button className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 flex items-center justify-center">
             <Clock className="w-6 h-6 mr-2" />
-            Help Fund Development - $149
+            Help Fund Development - $99
           </button>
         </div>
       </div>
@@ -153,7 +163,7 @@ export default function CountdownTimer() {
         </div>
         
         <div className="text-orange-300 text-sm font-medium">
-          Price increases to $199, then $249, then $499 at launch
+          Price increases to $149, then $199, then $499 at launch
         </div>
       </div>
 
@@ -170,7 +180,7 @@ export default function CountdownTimer() {
       >
         <button className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 flex items-center justify-center">
           <Clock className="w-6 h-6 mr-2" />
-          Help Fund Development - $149
+          Help Fund Development - $99
         </button>
       </motion.div>
     </div>

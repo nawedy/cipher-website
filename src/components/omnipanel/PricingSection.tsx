@@ -14,11 +14,29 @@ import {
   Star,
   TrendingUp
 } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function PricingSection() {
   const [billingCycle, setBillingCycle] = useState<'lifetime' | 'monthly'>('lifetime');
   const [teamSize, setTeamSize] = useState(10);
+  const [spotsRemaining, setSpotsRemaining] = useState(347);
+
+  useEffect(() => {
+    // Calculate spots remaining based on elapsed time from launch
+    const launchDate = new Date('2024-01-15T00:00:00Z'); // Fixed launch date
+    const now = new Date().getTime();
+    const elapsedTime = now - launchDate.getTime();
+    const totalCampaignTime = 72 * 60 * 60 * 1000; // 72 hours in milliseconds
+    
+    if (elapsedTime > 0 && elapsedTime < totalCampaignTime) {
+      const elapsedPercentage = Math.max(0, Math.min(1, elapsedTime / totalCampaignTime));
+      const spotsUsed = Math.floor(elapsedPercentage * 153); // 153 spots taken out of 500 total
+      const remaining = Math.max(0, 347 - spotsUsed);
+      setSpotsRemaining(remaining);
+    } else if (elapsedTime >= totalCampaignTime) {
+      setSpotsRemaining(0);
+    }
+  }, []);
 
   return (
     <section className="py-20 bg-gradient-to-b from-black/40 to-black/60">
@@ -56,12 +74,12 @@ export default function PricingSection() {
               <Clock className="w-6 h-6" />
             </div>
             <p className="text-red-300 text-lg">
-              Emergency pricing increases to $199, then $249, then $499 at launch
+              Emergency pricing increases to $149, then $199, then $499 at launch
             </p>
             <div className="mt-4 bg-red-500/20 rounded-full h-3">
               <div className="bg-red-500 h-3 rounded-full w-3/4"></div>
             </div>
-            <p className="text-red-300 text-sm mt-2">347 spots remaining at this price</p>
+            <p className="text-red-300 text-sm mt-2">{spotsRemaining} spots remaining at this price</p>
           </div>
         </motion.div>
 
@@ -107,7 +125,7 @@ export default function PricingSection() {
               className="relative"
             >
               {tier.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold z-10">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold z-10 whitespace-nowrap">
                   MOST POPULAR
                 </div>
               )}
