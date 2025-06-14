@@ -229,23 +229,32 @@ export const featuredServices = [
   }
 ];
 
-// Purpose: Trust indicators and client logos configuration
-export const trustIndicators = {
+// Purpose: Industry partners and technology stack logos configuration
+export const industryPartners = {
   stats: [
     { label: 'Enterprise Clients', value: '500+' },
     { label: 'AI Models Deployed', value: '150+' },
     { label: 'Revenue Generated', value: '$50M+' },
     { label: 'Success Rate', value: '98%' }
   ],
-  clients: [
-    { name: 'Microsoft', logo: '/logos/microsoft.svg' },
-    { name: 'Amazon', logo: '/logos/amazon.svg' },
-    { name: 'Google', logo: '/logos/google.svg' },
-    { name: 'IBM', logo: '/logos/ibm.svg' },
-    { name: 'Salesforce', logo: '/logos/salesforce.svg' },
-    { name: 'Oracle', logo: '/logos/oracle.svg' }
+  partners: [
+    { name: 'Vercel', logo: '/logos/vercel.svg', url: 'https://vercel.com' },
+    { name: 'Neon', logo: '/logos/neon.svg', url: 'https://neon.tech' },
+    { name: 'GitHub', logo: '/logos/github.svg', url: 'https://github.com' },
+    { name: 'Stripe', logo: '/logos/stripe.svg', url: 'https://stripe.com' },
+    { name: 'Strapi', logo: '/logos/strapi.svg', url: 'https://strapi.io' },
+    { name: 'OpenAI', logo: '/logos/openai.svg', url: 'https://openai.com' },
+    { name: 'Anthropic', logo: '/logos/anthropic.svg', url: 'https://anthropic.com' },
+    { name: 'Supabase', logo: '/logos/supabase.svg', url: 'https://supabase.com' },
+    { name: 'Next.js', logo: '/logos/nextjs.svg', url: 'https://nextjs.org' },
+    { name: 'TypeScript', logo: '/logos/typescript.svg', url: 'https://typescriptlang.org' },
+    { name: 'Tailwind CSS', logo: '/logos/tailwindcss.svg', url: 'https://tailwindcss.com' },
+    { name: 'Framer Motion', logo: '/logos/framer.svg', url: 'https://framer.com/motion' }
   ]
 };
+
+// Keep trustIndicators for backward compatibility but mark as deprecated
+export const trustIndicators = industryPartners;
 
 // Purpose: Cross-division collaboration examples
 export const collaborationExamples = [

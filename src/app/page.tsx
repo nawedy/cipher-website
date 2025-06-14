@@ -120,7 +120,7 @@ const HeroSection = () => {
   );
 };
 
-// Purpose: Trust indicators with client logos in marquee animation
+// Purpose: Industry partners showcase with technology logos in marquee animation
 const TrustSection = () => {
   return (
     <section className="py-16 bg-background/50 backdrop-blur-sm">
@@ -128,22 +128,31 @@ const TrustSection = () => {
         <BlurFade delay={0.2}>
           <div className="text-center mb-12">
             <p className="text-muted-foreground text-sm uppercase tracking-wider mb-8">
-              Trusted by Industry Leaders
+              Industry Partners
             </p>
           </div>
         </BlurFade>
 
         <BlurFade delay={0.4}>
           <Marquee className="py-4" pauseOnHover>
-            {trustIndicators.clients.map((client, index) => (
+            {trustIndicators.partners.map((partner, index) => (
               <div key={index} className="flex items-center justify-center mx-8">
-                <Image
-                  src={`https://source.unsplash.com/120x60/?${client.name},logo`}
-                  alt={client.name}
-                  width={120}
-                  height={60}
-                  className="opacity-60 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0"
-                />
+                <a 
+                  href={partner.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block transition-all duration-300 hover:scale-110"
+                >
+                  <div className="w-32 h-16 flex items-center justify-center bg-white/5 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
+                    <Image
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      width={120}
+                      height={60}
+                      className="opacity-60 hover:opacity-100 transition-opacity duration-300 filter brightness-0 invert"
+                    />
+                  </div>
+                </a>
               </div>
             ))}
           </Marquee>

@@ -1,0 +1,6 @@
+<svg width="120" height="60" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M45 20H50V40H55V20H60V15H45V20Z" fill="currentColor"/>
+  <path d="M35 15V40H40V25H50V20H40V15H35Z" fill="currentColor"/>
+  <circle cx="70" cy="30" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+  <text x="60" y="50" font-family="Arial, sans-serif" font-size="8" fill="currentColor">NEON</text>
+</svg> 

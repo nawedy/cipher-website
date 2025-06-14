@@ -65,14 +65,13 @@ export default function StrategyPage() {
           <BlurFade delay={0.2}>
             <div className="text-center mb-12">
               <p className="text-lg font-medium" style={{ color: theme.textSecondary }}>
-                Trusted by industry leaders and emerging companies worldwide
+                Powered by Industry Partners
               </p>
             </div>
           </BlurFade>
           <Marquee className="py-4">
             {[
-              'TechFlow Industries', 'Global Manufacturing Corp', 'HealthTech Solutions',
-              'Financial Dynamics', 'Retail Innovation Group', 'Energy Systems Ltd'
+              'Vercel', 'Neon', 'GitHub', 'Stripe', 'OpenAI', 'Anthropic'
             ].map((company, index) => (
               <div key={index} className="flex items-center justify-center mx-8">
                 <span className="text-xl font-semibold opacity-60" style={{ color: theme.textSecondary }}>
