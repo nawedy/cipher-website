@@ -27,8 +27,9 @@ export default function CountdownTimer() {
   useEffect(() => {
     setMounted(true);
     
-    // Set emergency deadline to 72 hours from a fixed launch date
-    const launchDate = new Date('2024-01-15T00:00:00Z'); // Fixed launch date
+    // Set emergency deadline to start at 6PM June 14, 2025 Central Time (CDT = UTC-5)
+    // Convert to UTC: 6PM CDT = 11PM UTC (23:00)
+    const launchDate = new Date('2025-06-14T23:00:00Z'); // 6PM Central Time on June 14, 2025
     const emergencyDeadline = new Date(launchDate.getTime() + (72 * 60 * 60 * 1000)); // 72 hours after launch
 
     const timer = setInterval(() => {
