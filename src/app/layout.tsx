@@ -3,6 +3,7 @@
 
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import { cn } from '@/lib/utils';
 import '@/app/globals.css';
 
@@ -95,7 +96,7 @@ export const viewport: Viewport = {
 };
 
 // Purpose: Global providers and analytics setup
-function Analytics() {
+function GoogleAnalytics() {
   // Google Analytics 4 implementation
   if (!process.env.GOOGLE_ANALYTICS_ID) return null;
 
@@ -205,7 +206,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn('dark', inter.variable)} suppressHydrationWarning>
       <head>
-        <Analytics />
+        <GoogleAnalytics />
         <StructuredData />
         
         {/* Preload critical resources */}
@@ -271,6 +272,9 @@ export default function RootLayout({
         <div id="main-content" className="relative">
           {children}
         </div>
+
+        {/* Vercel Analytics */}
+        <Analytics />
 
         {/* Global toast notifications container */}
         <div id="toast-container" className="fixed bottom-4 right-4 z-50 space-y-2" />
