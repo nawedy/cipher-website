@@ -1,0 +1,34 @@
+# New Environment Variables for Immediate Revenue Products
+# Add these to your .env.local file
+
+# Existing OmniPanel Products (keep these)
+STRIPE_PRODUCT_ID_OMNIPANEL=prod_SUpvkYAt2gzQzL
+STRIPE_PRICE_ID_INDIVIDUAL_FOUNDER=price_1RZqJDP4nRvJbyjDCacGT1gG
+STRIPE_PRICE_ID_TEAM_CRISIS_PACK=price_1RZqJNP4nRvJbyjDRDA6mK1D
+STRIPE_PRICE_ID_ENTERPRISE_EMERGENCY=price_1RZqJuP4nRvJbyjDWpQ0xqjl
+STRIPE_PRICE_ID_SUPPORTER=price_1RZqK3P4nRvJbyjDbC1jdzlL
+
+# NEW: AI Business Diagnostic Report Products
+STRIPE_PRODUCT_ID_AI_DIAGNOSTIC_STANDARD=prod_SUxk3fepMLPbU6
+STRIPE_PRICE_ID_AI_DIAGNOSTIC_STANDARD=price_1RZxuMP4nRvJbyjDsYfcvDNY
+
+STRIPE_PRODUCT_ID_AI_DIAGNOSTIC_PREMIUM=prod_SUxqG1ZrubAyDq
+STRIPE_PRICE_ID_AI_DIAGNOSTIC_PREMIUM=price_1RZxuwP4nRvJbyjDzgYnNeWg
+
+# NEW: Website Conversion Audit
+STRIPE_PRODUCT_ID_WEBSITE_AUDIT=prod_SUxqr07QvNpf2p
+STRIPE_PRICE_ID_WEBSITE_AUDIT=price_1RZxuyP4nRvJbyjDBA1xXx6X
+
+# NEW: AI Implementation Starter Kits
+STRIPE_PRODUCT_ID_AI_STARTER_KITS=prod_SUxq6GTpjDSNEn
+STRIPE_PRICE_ID_AI_STARTER_KITS=price_1RZxuzP4nRvJbyjDPQ7kbEGU
+
+# NEW: Success URLs for different products
+NEXT_PUBLIC_STRIPE_SUCCESS_URL_DIAGNOSTIC=/products/ai-business-diagnostic/success
+NEXT_PUBLIC_STRIPE_SUCCESS_URL_AUDIT=/products/website-audit/success
+NEXT_PUBLIC_STRIPE_SUCCESS_URL_KITS=/products/ai-starter-kits/success
+
+# NEW: Cancel URLs for different products
+NEXT_PUBLIC_STRIPE_CANCEL_URL_DIAGNOSTIC=/products/ai-business-diagnostic
+NEXT_PUBLIC_STRIPE_CANCEL_URL_AUDIT=/products/website-audit
+NEXT_PUBLIC_STRIPE_CANCEL_URL_KITS=/products/ai-starter-kits 
